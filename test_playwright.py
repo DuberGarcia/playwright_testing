@@ -28,4 +28,5 @@ async def test_run() -> None:
         await page.get_by_role("button", name="Close").click()
 
         await context.close()
+        
         await browser.close()
