@@ -28,5 +28,13 @@ async def test_run() -> None:
         await page.get_by_role("button", name="Close").click()
 
         await context.close()
-        
+
         await browser.close()
+
+@pytest.mark.asyncio
+async def test_api_success():
+    async with async_playwright() as p:
+        request_context = await p.request.new_context()
+        response = await request_context.get("https://jsonplaceholder.typicode.com/posts/1")
+        assert response.status == 200
+        await request_context.disp
