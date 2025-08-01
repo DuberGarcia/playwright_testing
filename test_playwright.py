@@ -8,4 +8,4 @@ async def test_api_success():
         request_context = await p.request.new_context()
         response = await request_context.get("https://jsonplaceholder.typicode.com/posts/1")
         assert response.status == 200
-        await request_context.dis
+        await request_context.dispose()
