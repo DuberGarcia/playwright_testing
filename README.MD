@@ -9,7 +9,7 @@ git clone git@github.com:DuberGarcia/playwright_testing.git
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-
+playwright install
 ```
 
 ## 3. Crear test
