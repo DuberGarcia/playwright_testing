@@ -1,9 +1,9 @@
 # Playwright testing
-## 1. clonar el repositorio
+## 1. Clonar el repositorio
 
 git clone git@github.com:DuberGarcia/playwright_testing.git
 
-## 2. crear ambiente virtual e instalar el requirements.txt
+## 2. Crear ambiente virtual e instalar el requirements.txt
 
 ```bash
 python3 -m venv venv
@@ -12,19 +12,25 @@ pip install -r requirements.txt
 
 ```
 
-## 3. crear test
-se ejecuta el comando codegen, abre el navegador y se realizan la insercion de los datos en el formulario, luego se verifica que los datos sean los que se escribieron en el input esto con la herramienta codegen que trae playwright
+## 3. Crear test
+se ejecuta el comando codegen, abre el navegador y se realizan la insercion de los datos en el formulario, luego se verifica que los datos sean los que se escribieron en el input esto con la herramienta codegen que trae playwright, el codigo generado debe convertirse a la version asincrona de la libreria de playwright
+
 ```bash
 playwright codegen --viewport-size="1920,1080" https://demoqa.com/automation-practice-form
 ```
 
-## 4. limpiar el test de codegen
+## 4. Limpiar el test de codegen
 
-se crea el archivo test_(nombre).py y ahi se pega lo que genero codegen, se limpia lo que sea innecesario para el test, ademas se debe usar el fixture que tiene el archivo conftest.py  
+se crea el archivo test_(nombre).py y ahi se pega lo que genero codegen, se limpia lo que sea innecesario para el test, ademas se debe usar el fixture que tiene el archivo conftest.py, crear una funcion que tambien empiece con test_* y ponerle el decorador, dentro de esa funcion ira el codigo que generamos
+
+```python
+@pytest.mark.asyncio
+```
+
 
 ## 5. Correr los test
 
-para ejecutar los test se debe usar pytest en la terminal
+para ejecutar los test se puede usar el comando pytest en la terminal
 
 ```bash
 pytest -vs
