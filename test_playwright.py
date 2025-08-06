@@ -1,7 +1,6 @@
 import pytest
 
 @pytest.mark.asyncio
-async def test_run(page):
-    await page.goto("https://demoqa.com/automation-practice-form")
+async def test_title(page):
     assert await page.title() == "DEMOQA"
 
