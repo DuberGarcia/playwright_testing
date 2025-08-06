@@ -7,6 +7,7 @@ async def page():
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context()
         page = await context.new_page()
+        await page.goto("https://demoqa.com/automation-practice-form")
         yield page
         await context.close()
         await browser.close()
