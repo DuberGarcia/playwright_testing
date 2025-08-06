@@ -7,7 +7,7 @@ async def page():
         browser = await p.chromium.launch(headless=True,args=["--no-sandbox", "--disable-setuid-sandbox"])
         context = await browser.new_context()
         page = await context.new_page()
-        await page.goto("https://demoqa.com/automation-practice-form")
+        await page.goto("https://demoqa.com/automation-practice-form",wait_until="domcontentloaded")
         yield page
         await context.close()
         await browser.close()
